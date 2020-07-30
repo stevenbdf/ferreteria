@@ -26,4 +26,6 @@ Route::middleware(['auth:api'])->group(function () {
     Route::apiResource('offices', 'OfficeController');
 
     Route::apiResource('departments', 'DepartmentController');
+
+    Route::apiResource('suppliers', 'SupplierController');
 });

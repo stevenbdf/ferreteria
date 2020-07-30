@@ -26,7 +26,7 @@ class OfficeRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'between:3, 255'],
             'phone' => ['required', 'integer', 'digits:8'],
-            'address'=> ['required', 'string', 'between:3, 255'],
+            'address' => ['required', 'string', 'between:3, 255'],
             'invoice_correlative' => ['required', 'integer'],
             'fiscal_credit_correlative' => ['required', 'integer'],
             'registry_number' => ['required', 'integer'],
