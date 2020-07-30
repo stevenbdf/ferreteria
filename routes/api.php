@@ -28,4 +28,6 @@ Route::middleware(['auth:api'])->group(function () {
     Route::apiResource('departments', 'DepartmentController');
 
     Route::apiResource('suppliers', 'SupplierController');
+
+    Route::apiResource('customers', 'CustomerController');
 });
