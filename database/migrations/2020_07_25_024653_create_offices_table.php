@@ -19,6 +19,7 @@ class CreateOfficesTable extends Migration
             $table->integer('phone')->nullable();
             $table->string('address');
             $table->integer('invoice_correlative');
+            $table->integer('fiscal_credit_correlative');
             $table->integer('registry_number');
             $table->char('nit', 14);
             $table->timestamps();
