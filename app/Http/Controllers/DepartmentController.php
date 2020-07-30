@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\OfficeRequest;
-use App\Office;
+use App\Department;
+use App\Http\Requests\DepartmentRequest;
 
-class OfficeController extends Controller
+class DepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +14,7 @@ class OfficeController extends Controller
      */
     public function index()
     {
-        return Office::all();
+        return Department::all();
     }
 
     /**
@@ -23,47 +23,47 @@ class OfficeController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(OfficeRequest $request)
+    public function store(DepartmentRequest $request)
     {
-        $office = Office::create($request->all());
+        $department = Department::create($request->all());
 
-        return response($office, 201);
+        return response($department, 201);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function show(Office $office)
+    public function show(Department $department)
     {
-        return $office;
+        return $department;
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function update(OfficeRequest $request, Office $office)
+    public function update(DepartmentRequest $request, Department $department)
     {
-        $office->update($request->all());
+        $department->update($request->all());
 
-        return response($office, 205);
+        return response($department, 205);
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Department  $department
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Office $office)
+    public function destroy(Department $department)
     {
-        $office->delete();
+        $department->delete();
 
         return response('', 205);
     }
