@@ -28,4 +28,9 @@ class Product extends Model
     {
         return $this->belongsTo('App\Supplier');
     }
+
+    public function transactions()
+    {
+        return $this->hasMany('App\Transaction');
+    }
 }
