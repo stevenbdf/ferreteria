@@ -84,21 +84,13 @@ class TransactionController extends Controller
      * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function show(TransactionRequest $transaction)
+    public function show(Transaction $transaction)
     {
-        //
-    }
+        $transaction->product;
+        $transaction->user;
+        $transaction->office;
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Transaction  $transaction
-     * @return \Illuminate\Http\Response
-     */
-    public function update(TransactionRequest $request, Transaction $transaction)
-    {
-        //
+        return $transaction;
     }
 
     /**
@@ -107,8 +99,17 @@ class TransactionController extends Controller
      * @param  \App\Transaction  $transaction
      * @return \Illuminate\Http\Response
      */
-    public function destroy(TransactionRequest $transaction)
+    public function destroy(Transaction $transaction)
     {
-        //
+        $last_transaction = Transaction::where('product_id', $transaction->product_id)
+        ->where('office_id', $transaction->office_id)
+        ->latest('id')
+        ->first();
+
+        if ($last_transaction->id == $transaction->id) {
+            $transaction->delete();
+            return response('Deleted successfully', 205);
+        }
+        return response('Only last transaction of the product can be deleted', 400);
     }
 }
