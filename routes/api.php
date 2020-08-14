@@ -36,4 +36,16 @@ Route::middleware(['auth:api'])->group(function () {
     Route::apiResource('transactions', 'TransactionController')->except([
         'update'
     ]);
+
+    Route::apiResource('invoices', 'InvoiceController')->except([
+        'update', 'destroy'
+    ]);
+
+    Route::apiResource('quotes', 'QuoteController')->except([
+        'update', 'destroy'
+    ]);
+
+    Route::apiResource('fiscalCredits', 'FiscalCreditController')->except([
+        'update', 'destroy'
+    ]);
 });
