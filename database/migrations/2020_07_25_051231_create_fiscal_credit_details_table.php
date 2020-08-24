@@ -18,6 +18,7 @@ class CreateFiscalCreditDetailsTable extends Migration
             $table->foreignId('invoice_id')->constrained();
             $table->string('product_id');
             $table->foreign('product_id')->references('id')->on('products');
+            $table->double('quantity', 10, 2);
             $table->double('sale_price', 10, 2);
             $table->double('iva', 10, 2);
             $table->timestamps();
