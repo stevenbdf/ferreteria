@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateFiscalCreditsTable extends Migration
 {
@@ -18,7 +19,7 @@ class CreateFiscalCreditsTable extends Migration
             $table->foreignId('office_id')->constrained();
             $table->foreignId('customer_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->date('date')->useCurrent();
+            $table->date('date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamps();
         });
     }

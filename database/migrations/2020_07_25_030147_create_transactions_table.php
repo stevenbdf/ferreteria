@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 class CreateTransactionsTable extends Migration
 {
@@ -19,7 +20,7 @@ class CreateTransactionsTable extends Migration
             $table->string('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreignId('office_id')->constrained();
-            $table->date('date')->useCurrent();
+            $table->date('date')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->boolean('type');
             $table->string('description');
             $table->double('quantity', 8, 2);
