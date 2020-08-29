@@ -19,7 +19,7 @@ class CreateTransactionsTable extends Migration
             $table->string('product_id');
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreignId('office_id')->constrained();
-            $table->date('date');
+            $table->date('date')->useCurrent();
             $table->boolean('type');
             $table->string('description');
             $table->double('quantity', 8, 2);
