@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductRequest;
 use App\Product;
+use App\Transaction;
 use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
@@ -21,6 +22,9 @@ class ProductController extends Controller
             if ($product->image_path) {
                 $product->image_path = url("assets/{$product->image_path}");
             }
+
+            $transaction = Transaction::where('product_id', $product->id)->latest('id')->first();
+            $product->stock = $transaction['stock'];
         }
 
         return $products;
