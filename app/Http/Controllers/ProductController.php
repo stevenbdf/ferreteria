@@ -22,9 +22,11 @@ class ProductController extends Controller
             if ($product->image_path) {
                 $product->image_path = url("assets/{$product->image_path}");
             }
-
+            $product->stock = 0;
             $transaction = Transaction::where('product_id', $product->id)->latest('id')->first();
-            $product->stock = $transaction['stock'];
+            if ($transaction) {
+                $product->stock = $transaction['stock'];
+            }
         }
 
         return $products;
