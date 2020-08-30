@@ -76,6 +76,11 @@ class ProductController extends Controller
     public function show(Product $product)
     {
         $product->image_path = url("assets/{$product->image_path}");
+        $product->stock = 0;
+        $transaction = Transaction::where('product_id', $product->id)->latest('id')->first();
+        if ($transaction) {
+            $product->stock = $transaction['stock'];
+        }
         return $product;
     }
 
