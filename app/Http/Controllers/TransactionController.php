@@ -14,7 +14,7 @@ class TransactionController extends Controller
      */
     public function index()
     {
-        $transactions = Transaction::all();
+        $transactions = Transaction::latest()->get();
 
         foreach ($transactions as $transaction) {
             $transaction->product;
@@ -23,7 +23,6 @@ class TransactionController extends Controller
         }
 
         return $transactions;
-
     }
 
     /**
@@ -75,7 +74,13 @@ class TransactionController extends Controller
             'cost' => $costo_promedio
         ]);
 
-        return response($transaction, 201);
+        $full_transaction = Transaction::find($transaction->id);
+
+        $full_transaction->product;
+        $full_transaction->user;
+        $full_transaction->office;
+
+        return response($full_transaction, 201);
     }
 
     /**
@@ -102,9 +107,9 @@ class TransactionController extends Controller
     public function destroy(Transaction $transaction)
     {
         $last_transaction = Transaction::where('product_id', $transaction->product_id)
-        ->where('office_id', $transaction->office_id)
-        ->latest('id')
-        ->first();
+            ->where('office_id', $transaction->office_id)
+            ->latest('id')
+            ->first();
 
         if ($last_transaction->id == $transaction->id) {
             $transaction->delete();

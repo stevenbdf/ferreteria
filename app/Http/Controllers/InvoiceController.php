@@ -51,7 +51,11 @@ class InvoiceController extends Controller
             $cantidad_nueva = $detail['quantity'];
 
             $nuevo_stock = $cantidad_actual - $detail['quantity'];
-            $costo_promedio = ($valor_inventario - $valor_nueva_entrada) / ($cantidad_actual - $cantidad_nueva);
+            if ($cantidad_actual - $cantidad_nueva) {
+                $costo_promedio = ($valor_inventario - $valor_nueva_entrada) / ($cantidad_actual - $cantidad_nueva);
+            } else {
+                $costo_promedio = $last_transaction->cost;
+            }
 
             Transaction::create([
                 'user_id' => $request->user_id,
