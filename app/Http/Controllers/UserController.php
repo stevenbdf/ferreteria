@@ -109,7 +109,13 @@ class UserController extends Controller
      */
     public function update(Request $request, User $user)
     {
-        $user->update($request->all());
+        $data = $request->all();
+
+        if ($request->password) {
+            $data['password'] = Hash::make($data['password']);
+        }
+
+        $user->update($data);
 
         return response($user, 205);
     }

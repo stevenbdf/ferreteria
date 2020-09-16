@@ -31,6 +31,8 @@ Route::middleware(['auth:api'])->group(function () {
 
     Route::apiResource('customers', 'CustomerController');
 
+    Route::post('products/getProductId','ProductController@getProductId');
+
     Route::apiResource('products', 'ProductController');
 
     Route::apiResource('transactions', 'TransactionController')->except([

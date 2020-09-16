@@ -20,6 +20,7 @@ class CreateProductsTable extends Migration
             $table->foreignId('supplier_id')->constrained();
             $table->string('description');
             $table->string('image_path')->nullable();
+            $table->double('base_cost', 10, 2);
             $table->integer('profit');
             $table->double('price', 10, 2);
             $table->timestamps();

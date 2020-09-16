@@ -30,6 +30,7 @@ class ProductRequest extends FormRequest
             'supplier_id' => ['required', 'integer', 'exists:suppliers,id'],
             'description' => ['required', 'string', 'between:3, 255'],
             'image' => ['nullable','file', 'mimes:jpg,jpeg,png','max:200000'],
+            'base_cost' => ['numeric'],
             'profit' => ['required','integer'],
             'price' => ['numeric']
         ];
