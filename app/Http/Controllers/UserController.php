@@ -147,6 +147,7 @@ class UserController extends Controller
     {
         return response()->json([
             'id' => auth()->id(),
+            'type' => auth()->user()->type,
             'full_name' => auth()->user()->full_name,
             'username' => auth()->user()->username,
             'token' => $token
