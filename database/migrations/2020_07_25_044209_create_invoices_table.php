@@ -20,7 +20,7 @@ class CreateInvoicesTable extends Migration
             $table->foreignId('office_id')->constrained();
             $table->foreignId('customer_id')->constrained();
             $table->foreignId('user_id')->constrained();
-            $table->date('date')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->date('date');
             $table->timestamps();
         });
     }

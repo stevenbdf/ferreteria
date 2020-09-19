@@ -17,10 +17,10 @@ class CreateTransactionsTable extends Migration
         Schema::create('transactions', function (Blueprint $table) {
             $table->id();
             $table->foreignId('user_id')->constrained();
-            $table->string('product_id');
+            $table->char('product_id', 8);
             $table->foreign('product_id')->references('id')->on('products');
             $table->foreignId('office_id')->constrained();
-            $table->date('date')->default(DB::raw('CURRENT_TIMESTAMP'));
+            $table->date('date');
             $table->boolean('type');
             $table->string('description');
             $table->double('quantity', 8, 2);

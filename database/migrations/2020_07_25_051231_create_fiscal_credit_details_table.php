@@ -16,7 +16,7 @@ class CreateFiscalCreditDetailsTable extends Migration
         Schema::create('fiscal_credit_details', function (Blueprint $table) {
             $table->id();
             $table->foreignId('fiscal_credit_id')->constrained();
-            $table->string('product_id');
+            $table->char('product_id', 8);
             $table->foreign('product_id')->references('id')->on('products');
             $table->double('quantity', 10, 2);
             $table->double('sale_price', 10, 2);
