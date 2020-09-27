@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\TransactionRequest;
+use App\Product;
 use App\Transaction;
 
 class TransactionController extends Controller
@@ -79,6 +80,13 @@ class TransactionController extends Controller
         $full_transaction->product;
         $full_transaction->user;
         $full_transaction->office;
+
+        $product = Product::find($request->product_id);
+
+        $product->update([
+            'base_cost' => $costo_promedio,
+            'price' => $costo_promedio * ( $product->profit / 100 )
+        ]);
 
         return response($full_transaction, 201);
     }
