@@ -35,6 +35,8 @@ Route::middleware(['auth:api'])->group(function () {
 
     Route::apiResource('products', 'ProductController');
 
+    Route::get('/transactions/export/', 'TransactionController@export');
+
     Route::apiResource('transactions', 'TransactionController')->except([
         'update'
     ]);

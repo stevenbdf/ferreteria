@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\TransactionsExport;
 use App\Http\Requests\TransactionRequest;
 use App\Product;
 use App\Transaction;
@@ -124,5 +126,10 @@ class TransactionController extends Controller
             return response('Deleted successfully', 205);
         }
         return response('Only last transaction of the product can be deleted', 400);
+    }
+
+    public function export()
+    {
+        return Excel::download(new TransactionsExport, 'inventario.xlsx');
     }
 }
