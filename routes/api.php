@@ -20,6 +20,8 @@ Route::post('register', 'UserController@register');
 
 Route::get('logout', 'UserController@logout');
 
+Route::get('/transactions/export/', 'TransactionController@export');
+
 Route::middleware(['auth:api'])->group(function () {
     Route::apiResource('users', 'UserController');
 
@@ -34,8 +36,6 @@ Route::middleware(['auth:api'])->group(function () {
     Route::post('products/getProductId','ProductController@getProductId');
 
     Route::apiResource('products', 'ProductController');
-
-    Route::get('/transactions/export/', 'TransactionController@export');
 
     Route::apiResource('transactions', 'TransactionController')->except([
         'update'
