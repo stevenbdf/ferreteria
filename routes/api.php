@@ -22,6 +22,8 @@ Route::get('logout', 'UserController@logout');
 
 Route::get('/transactions/export/', 'TransactionController@export');
 
+Route::get('/invoices/pdf', 'InvoiceController@printInvoice');
+
 Route::middleware(['auth:api'])->group(function () {
     Route::apiResource('users', 'UserController');
 
