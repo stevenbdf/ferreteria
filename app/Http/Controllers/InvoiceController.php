@@ -104,7 +104,7 @@ class InvoiceController extends Controller
     {
         $pdf = app('dompdf.wrapper');
         $data = [
-            "numeros_letras" => $this->num2letras(505.71)
+            "numeros_letras" => $this->num2letras(1505.75)
         ];
         $pdf->loadView('invoice', $data);
         return $pdf->stream('mi-archivo.pdf');

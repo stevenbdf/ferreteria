@@ -7,6 +7,7 @@ use App\Exports\TransactionsExport;
 use App\Http\Requests\TransactionRequest;
 use App\Product;
 use App\Transaction;
+use Illuminate\Support\Facades\Request;
 
 class TransactionController extends Controller
 {
@@ -87,7 +88,7 @@ class TransactionController extends Controller
 
         $product->update([
             'base_cost' => $costo_promedio,
-            'price' => $costo_promedio * ( $product->profit / 100 )
+            'price' => ($costo_promedio * ( $product->profit / 100 )) + $costo_promedio
         ]);
 
         return response($full_transaction, 201);
@@ -131,5 +132,18 @@ class TransactionController extends Controller
     public function export()
     {
         return Excel::download(new TransactionsExport, 'inventario.xlsx');
+    }
+
+    public function transactionsByOffice($office_id)
+    {
+        $transactions = Transaction::where('office_id', $office_id)->latest()->get();
+
+        foreach ($transactions as $transaction) {
+            $transaction->product;
+            $transaction->user;
+            $transaction->office;
+        }
+
+        return $transactions;
     }
 }
