@@ -22,7 +22,7 @@ Route::get('logout', 'UserController@logout');
 
 Route::get('/transactions/export/', 'TransactionController@export');
 
-Route::get('/invoices/pdf', 'InvoiceController@printInvoice');
+Route::get('/invoices/pdf/{invoice_id}', 'InvoiceController@printInvoice');
 
 Route::get('/fiscal-credit/pdf', 'FiscalCreditController@printInvoice');
 

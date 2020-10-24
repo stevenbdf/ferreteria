@@ -100,13 +100,35 @@ class InvoiceController extends Controller
         return $invoice;
     }
 
-    public function printInvoice()
+    public function printInvoice($invoice_id)
     {
         $pdf = app('dompdf.wrapper');
-        $data = [
-            "numeros_letras" => $this->num2letras(1505.75)
-        ];
-        $pdf->loadView('invoice', $data);
+
+        $invoice = Invoice::find($invoice_id);
+
+        $invoice->user;
+        $invoice->customer;
+        $invoice->invoiceDetails;
+
+        $test = 'o';
+
+        $invoice->invoiceDetails->map(function ($detail) {
+            $detail->product;
+            $detail->sub_total = $detail->quantity * $detail->sale_price;
+        });
+
+        $total = 0;
+        foreach ($invoice->invoiceDetails as $key => $value) {
+            $total = $total + $value->sub_total;
+        }
+
+        $invoice->total = $total;
+
+        $invoice->numeros_letras = $this->num2letras($invoice->total);
+
+        // return json_encode($invoice);
+
+        $pdf->loadView('invoice', $invoice);
         return $pdf->stream('mi-archivo.pdf');
     }
 
@@ -284,7 +306,7 @@ class InvoiceController extends Controller
         }
         $tex = $neg . substr($tex, 1) . $fin;
         //Zi hack --> return ucfirst($tex);
-        $end_num = strtoupper(ucfirst($tex) . ' ' . $float[1]  . '/100 US DOLARES');
+        $end_num = strtoupper(ucfirst($tex) . ' ' . (count($float) == 2 ? $float[1] : '0')  . '/100 US DOLARES');
         return $end_num;
     }
 }

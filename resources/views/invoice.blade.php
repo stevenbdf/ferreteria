@@ -36,27 +36,27 @@
                 <table style="width:100%;padding-top:4.3cm;">
                     <tr>
                         <td style="text-align:right;padding-right:1.2cm;">
-                            30/09/2020
+                            {{ date("d/m/Y") }}
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align:left;padding-left:2cm;font-size:0.4cm">
-                            Maria Alejandra Escobar Hernandez
+                            {{ $customer['full_name']}}
                         </td>
                     </tr>
                     <tr>
                         <td style="text-align:left;padding-left:2.3cm;font-size:0.4cm">
-                            Pasaje Familiar Casa #5, San Salvador
+                            {{ $customer['address']}}
                         </td>
                     </tr>
                     <tr>
                         <table style="width:100%;">
                             <tr>
                                 <td style="text-align:left;padding-left:2.1cm;font-size:0.4cm">
-                                    06277704-5
+                                {{ $customer['dui']}}
                                 </td>
                                 <td style="text-align:right;font-size:0.4cm;padding-right:1.2cm;">
-                                    Steven Diaz
+                                {{ $user['full_name'] }}
                                 </td>
                             </tr>
                         </table>
@@ -72,16 +72,16 @@
                             <table style="width:100%;padding-left:1cm;height:0.8cm;">
                                 <tr>
                                     <td style="width:1.3cm;">
-                                        5
+                                        {{ array_key_exists(0, $invoice_details) ? $invoice_details[0]['quantity'] : ' ' }}
                                     </td>
                                     <td>
-                                        Angulo
+                                        {{ array_key_exists(0, $invoice_details) ? $invoice_details[0]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        4
+                                        {{ array_key_exists(0, $invoice_details) ? $invoice_details[0]['sale_price'] : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        21
+                                        {{ array_key_exists(0, $invoice_details) ? $invoice_details[0]['sub_total'] : ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -92,16 +92,16 @@
                             <table style="width:100%;padding-left:1cm;height:0.8cm;">
                                 <tr>
                                     <td style="width:1.3cm;">
-                                        5
+                                        {{ array_key_exists(1, $invoice_details) ? $invoice_details[1]['quantity'] : ' ' }}
                                     </td>
                                     <td>
-                                        Angulo
+                                        {{ array_key_exists(1, $invoice_details) ? $invoice_details[1]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        4
+                                        {{ array_key_exists(1, $invoice_details) ? $invoice_details[1]['sale_price'] : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        21
+                                        {{ array_key_exists(1, $invoice_details) ? $invoice_details[1]['sub_total'] : ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -112,16 +112,16 @@
                             <table style="width:100%;padding-left:1cm;height:0.8cm;">
                                 <tr>
                                     <td style="width:1.3cm;">
-                                        5
+                                        {{ array_key_exists(2, $invoice_details) ? $invoice_details[2]['quantity'] : ' ' }}
                                     </td>
                                     <td>
-                                        Angulo
+                                        {{ array_key_exists(2, $invoice_details) ? $invoice_details[2]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        4
+                                        {{ array_key_exists(2, $invoice_details) ? $invoice_details[2]['sale_price'] : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        21
+                                        {{ array_key_exists(2, $invoice_details) ? $invoice_details[2]['sub_total'] : ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -132,16 +132,16 @@
                             <table style="width:100%;padding-left:1cm;height:0.8cm;">
                                 <tr>
                                     <td style="width:1.3cm;">
-                                        5
+                                        {{ array_key_exists(3, $invoice_details) ? $invoice_details[3]['quantity'] : ' ' }}
                                     </td>
                                     <td>
-                                        Angulo
+                                        {{ array_key_exists(3, $invoice_details) ? $invoice_details[3]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        4
+                                        {{ array_key_exists(3, $invoice_details) ? $invoice_details[3]['sale_price'] : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        21
+                                        {{ array_key_exists(3, $invoice_details) ? $invoice_details[3]['sub_total'] : ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -152,16 +152,16 @@
                             <table style="width:100%;padding-left:1cm;height:0.8cm;">
                                 <tr>
                                     <td style="width:1.3cm;">
-                                        5
+                                        {{ array_key_exists(4, $invoice_details) ? $invoice_details[4]['quantity'] : ' ' }}
                                     </td>
                                     <td>
-                                        Angulo
+                                        {{ array_key_exists(4, $invoice_details) ? $invoice_details[4]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        4
+                                        {{ array_key_exists(4, $invoice_details) ? $invoice_details[4]['sale_price'] : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        21
+                                        {{ array_key_exists(4, $invoice_details) ? $invoice_details[4]['sub_total'] : ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -172,16 +172,16 @@
                             <table style="width:100%;padding-left:1cm;height:0.8cm;">
                                 <tr>
                                     <td style="width:1.3cm;">
-                                        5
+                                        {{ array_key_exists(5, $invoice_details) ? $invoice_details[5]['quantity'] : ' ' }}
                                     </td>
                                     <td>
-                                        Angulo
+                                        {{ array_key_exists(5, $invoice_details) ? $invoice_details[5]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        4
+                                        {{ array_key_exists(5, $invoice_details) ? $invoice_details[5]['sale_price'] : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        21
+                                        {{ array_key_exists(5, $invoice_details) ? $invoice_details[5]['sub_total'] : ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -192,16 +192,16 @@
                             <table style="width:100%;padding-left:1cm;height:0.8cm;">
                                 <tr>
                                     <td style="width:1.3cm;">
-                                        5
+                                        {{ array_key_exists(6, $invoice_details) ? $invoice_details[6]['quantity'] : ' ' }}
                                     </td>
                                     <td>
-                                        Angulo
+                                        {{ array_key_exists(6, $invoice_details) ? $invoice_details[6]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        4
+                                        {{ array_key_exists(6, $invoice_details) ? $invoice_details[6]['sale_price'] : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        21
+                                        {{ array_key_exists(6, $invoice_details) ? $invoice_details[6]['sub_total'] : ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -212,16 +212,16 @@
                             <table style="width:100%;padding-left:1cm;height:0.8cm;">
                                 <tr>
                                     <td style="width:1.3cm;">
-                                        5
+                                        {{ array_key_exists(7, $invoice_details) ? $invoice_details[7]['quantity'] : ' ' }}
                                     </td>
                                     <td>
-                                        Angulo
+                                        {{ array_key_exists(7, $invoice_details) ? $invoice_details[7]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        4
+                                        {{ array_key_exists(7, $invoice_details) ? $invoice_details[7]['sale_price'] : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        21
+                                        {{ array_key_exists(7, $invoice_details) ? $invoice_details[7]['sub_total'] : ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -232,16 +232,16 @@
                             <table style="width:100%;padding-left:1cm;height:0.8cm;">
                                 <tr>
                                     <td style="width:1.3cm;">
-                                        5
+                                        {{ array_key_exists(8, $invoice_details) ? $invoice_details[8]['quantity'] : ' ' }}
                                     </td>
                                     <td>
-                                        Angulo
+                                        {{ array_key_exists(8, $invoice_details) ? $invoice_details[8]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        4
+                                        {{ array_key_exists(8, $invoice_details) ? $invoice_details[8]['sale_price'] : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        21
+                                        {{ array_key_exists(8, $invoice_details) ? $invoice_details[8]['sub_total'] : ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -252,16 +252,16 @@
                             <table style="width:100%;padding-left:1cm;height:0.8cm;">
                                 <tr>
                                     <td style="width:1.3cm;">
-                                        5
+                                        {{ array_key_exists(9, $invoice_details) ? $invoice_details[9]['quantity'] : ' ' }}
                                     </td>
                                     <td>
-                                        Angulo
+                                        {{ array_key_exists(9, $invoice_details) ? $invoice_details[9]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        4
+                                        {{ array_key_exists(9, $invoice_details) ? $invoice_details[9]['sale_price'] : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        21
+                                        {{ array_key_exists(9, $invoice_details) ? $invoice_details[9]['sub_total'] : ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -272,16 +272,16 @@
                             <table style="width:100%;padding-left:1cm;height:0.8cm;">
                                 <tr>
                                     <td style="width:1.3cm;">
-                                        5
+                                        {{ array_key_exists(10, $invoice_details) ? $invoice_details[10]['quantity'] : ' ' }}
                                     </td>
                                     <td>
-                                        Angulo
+                                        {{ array_key_exists(10, $invoice_details) ? $invoice_details[10]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        4
+                                        {{ array_key_exists(10, $invoice_details) ? $invoice_details[10]['sale_price'] : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        21
+                                        {{ array_key_exists(10, $invoice_details) ? $invoice_details[10]['sub_total'] : ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -299,7 +299,7 @@
                                         <table style="width: 100%;font-size: 14px;">
                                             <tr>
                                                 <td style="text-align: right;padding-right:1.2cm;">
-                                                    1500.75
+                                                    {{ $total }}
                                                 </td>
                                             </tr>
                                             <tr>
@@ -324,7 +324,7 @@
                                             </tr>
                                             <tr>
                                                 <td style="text-align: right;padding-right:1.2cm;">
-                                                    1500.75
+                                                    {{ $total }}
                                                 </td>
                                             </tr>
                                             <tr>
@@ -364,7 +364,7 @@
                                             </tr>
                                             <tr>
                                                 <td style="text-align: right;padding-right:1.2cm;">
-                                                    1500.75
+                                                    {{ $total }}
                                                 </td>
                                             </tr>
                                         </table>
