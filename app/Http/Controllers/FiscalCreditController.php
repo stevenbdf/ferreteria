@@ -107,13 +107,36 @@ class FiscalCreditController extends Controller
     }
 
 
-    public function printInvoice()
+    public function printInvoice($fiscal_credit_id)
     {
         $pdf = app('dompdf.wrapper');
-        $data = [
-            "numeros_letras" => $this->num2letras(1505.75)
-        ];
-        $pdf->loadView('fiscal-credit', $data);
+
+        $fiscal_credit = FiscalCredit::find($fiscal_credit_id);
+
+        $fiscal_credit->user;
+        $fiscal_credit->customer;
+        $fiscal_credit->fiscalCreditDetails;
+
+        $fiscal_credit->fiscalCreditDetails->map(function ($detail) {
+            $detail->product;
+            $detail->sub_total = $detail->quantity * $detail->sale_price;
+            $detail->sub_total_iva = $detail->quantity * $detail->iva;
+        });
+
+        $sub_total = 0;
+        $total_iva = 0;
+        foreach ($fiscal_credit->fiscalCreditDetails as $key => $value) {
+            $sub_total = $sub_total  + $value->sub_total;
+            $total_iva = $total_iva + $value->sub_total_iva;
+        }
+
+        $fiscal_credit->sub_total = $sub_total ;
+        $fiscal_credit->total_iva = $total_iva;
+        $fiscal_credit->total = number_format($sub_total + $total_iva, 2);
+
+        $fiscal_credit->numeros_letras = $this->num2letras($fiscal_credit->total);
+
+        $pdf->loadView('fiscal-credit', $fiscal_credit);
         return $pdf->stream('mi-archivo.pdf');
     }
     /*!
@@ -290,7 +313,7 @@ class FiscalCreditController extends Controller
         }
         $tex = $neg . substr($tex, 1) . $fin;
         //Zi hack --> return ucfirst($tex);
-        $end_num = strtoupper(ucfirst($tex) . ' ' . $float[1]  . '/100 US DOLARES');
+        $end_num = strtoupper(ucfirst($tex) . ' ' . (count($float) == 2 ? $float[1] : '0') . '/100 US DOLARES');
         return $end_num;
     }
 }

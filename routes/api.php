@@ -24,7 +24,7 @@ Route::get('/transactions/export/', 'TransactionController@export');
 
 Route::get('/invoices/pdf/{invoice_id}', 'InvoiceController@printInvoice');
 
-Route::get('/fiscal-credit/pdf', 'FiscalCreditController@printInvoice');
+Route::get('/fiscal-credit/pdf/{fiscal_credit_id}', 'FiscalCreditController@printInvoice');
 
 Route::middleware(['auth:api'])->group(function () {
     Route::apiResource('users', 'UserController');
