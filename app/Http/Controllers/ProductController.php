@@ -96,6 +96,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
+        // UPDATE products SET profit = ((price - base_cost)*100) / base_cost
         $product->image_path = url("assets/{$product->image_path}");
         $product->stock = 0;
         $product->inventory_cost = 0;
