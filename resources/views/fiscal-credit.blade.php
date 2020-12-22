@@ -76,10 +76,10 @@
                                         {{ array_key_exists(0, $fiscal_credit_details) ? $fiscal_credit_details[0]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        {{ array_key_exists(0, $fiscal_credit_details) ? $fiscal_credit_details[0]['sale_price'] : ' ' }}
+                                        {{ array_key_exists(0, $fiscal_credit_details) ? number_format($fiscal_credit_details[0]['sale_price'], 2) : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        {{ array_key_exists(0, $fiscal_credit_details) ? $fiscal_credit_details[0]['sub_total'] : ' ' }}
+                                        {{ array_key_exists(0, $fiscal_credit_details) ? number_format($fiscal_credit_details[0]['sub_total'], 2): ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -96,10 +96,10 @@
                                         {{ array_key_exists(1, $fiscal_credit_details) ? $fiscal_credit_details[1]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        {{ array_key_exists(1, $fiscal_credit_details) ? $fiscal_credit_details[1]['sale_price'] : ' ' }}
+                                        {{ array_key_exists(1, $fiscal_credit_details) ? number_format($fiscal_credit_details[1]['sale_price'], 2) : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        {{ array_key_exists(1, $fiscal_credit_details) ? $fiscal_credit_details[1]['sub_total'] : ' ' }}
+                                        {{ array_key_exists(1, $fiscal_credit_details) ? number_format($fiscal_credit_details[1]['sub_total'], 2): ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -116,10 +116,10 @@
                                         {{ array_key_exists(2, $fiscal_credit_details) ? $fiscal_credit_details[2]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        {{ array_key_exists(2, $fiscal_credit_details) ? $fiscal_credit_details[2]['sale_price'] : ' ' }}
+                                        {{ array_key_exists(2, $fiscal_credit_details) ? number_format($fiscal_credit_details[2]['sale_price'], 2) : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        {{ array_key_exists(2, $fiscal_credit_details) ? $fiscal_credit_details[2]['sub_total'] : ' ' }}
+                                        {{ array_key_exists(2, $fiscal_credit_details) ? number_format($fiscal_credit_details[2]['sub_total'], 2): ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -136,10 +136,10 @@
                                         {{ array_key_exists(3, $fiscal_credit_details) ? $fiscal_credit_details[3]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        {{ array_key_exists(3, $fiscal_credit_details) ? $fiscal_credit_details[3]['sale_price'] : ' ' }}
+                                        {{ array_key_exists(3, $fiscal_credit_details) ? number_format($fiscal_credit_details[3]['sale_price'], 2) : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        {{ array_key_exists(3, $fiscal_credit_details) ? $fiscal_credit_details[3]['sub_total'] : ' ' }}
+                                        {{ array_key_exists(3, $fiscal_credit_details) ? number_format($fiscal_credit_details[3]['sub_total'], 2): ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -156,10 +156,10 @@
                                         {{ array_key_exists(4, $fiscal_credit_details) ? $fiscal_credit_details[4]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        {{ array_key_exists(4, $fiscal_credit_details) ? $fiscal_credit_details[4]['sale_price'] : ' ' }}
+                                        {{ array_key_exists(4, $fiscal_credit_details) ? number_format($fiscal_credit_details[4]['sale_price'], 2) : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        {{ array_key_exists(4, $fiscal_credit_details) ? $fiscal_credit_details[4]['sub_total'] : ' ' }}
+                                        {{ array_key_exists(4, $fiscal_credit_details) ? number_format($fiscal_credit_details[4]['sub_total'], 2): ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -176,10 +176,10 @@
                                         {{ array_key_exists(5, $fiscal_credit_details) ? $fiscal_credit_details[5]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        {{ array_key_exists(5, $fiscal_credit_details) ? $fiscal_credit_details[5]['sale_price'] : ' ' }}
+                                        {{ array_key_exists(5, $fiscal_credit_details) ? number_format($fiscal_credit_details[5]['sale_price'], 2) : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        {{ array_key_exists(5, $fiscal_credit_details) ? $fiscal_credit_details[5]['sub_total'] : ' ' }}
+                                        {{ array_key_exists(5, $fiscal_credit_details) ? number_format($fiscal_credit_details[5]['sub_total'], 2): ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -196,10 +196,10 @@
                                         {{ array_key_exists(6, $fiscal_credit_details) ? $fiscal_credit_details[6]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        {{ array_key_exists(6, $fiscal_credit_details) ? $fiscal_credit_details[6]['sale_price'] : ' ' }}
+                                        {{ array_key_exists(6, $fiscal_credit_details) ? number_format($fiscal_credit_details[6]['sale_price'], 2) : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        {{ array_key_exists(6, $fiscal_credit_details) ? $fiscal_credit_details[6]['sub_total'] : ' ' }}
+                                        {{ array_key_exists(6, $fiscal_credit_details) ? number_format($fiscal_credit_details[6]['sub_total'], 2): ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -216,10 +216,10 @@
                                         {{ array_key_exists(7, $fiscal_credit_details) ? $fiscal_credit_details[7]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        {{ array_key_exists(7, $fiscal_credit_details) ? $fiscal_credit_details[7]['sale_price'] : ' ' }}
+                                        {{ array_key_exists(7, $fiscal_credit_details) ? number_format($fiscal_credit_details[7]['sale_price'], 2) : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        {{ array_key_exists(7, $fiscal_credit_details) ? $fiscal_credit_details[7]['sub_total'] : ' ' }}
+                                        {{ array_key_exists(7, $fiscal_credit_details) ? number_format($fiscal_credit_details[7]['sub_total'], 2): ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -236,10 +236,10 @@
                                         {{ array_key_exists(8, $fiscal_credit_details) ? $fiscal_credit_details[8]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        {{ array_key_exists(8, $fiscal_credit_details) ? $fiscal_credit_details[8]['sale_price'] : ' ' }}
+                                        {{ array_key_exists(8, $fiscal_credit_details) ? number_format($fiscal_credit_details[8]['sale_price'], 2) : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        {{ array_key_exists(8, $fiscal_credit_details) ? $fiscal_credit_details[8]['sub_total'] : ' ' }}
+                                        {{ array_key_exists(8, $fiscal_credit_details) ? number_format($fiscal_credit_details[8]['sub_total'], 2): ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -256,10 +256,10 @@
                                         {{ array_key_exists(9, $fiscal_credit_details) ? $fiscal_credit_details[9]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        {{ array_key_exists(9, $fiscal_credit_details) ? $fiscal_credit_details[9]['sale_price'] : ' ' }}
+                                        {{ array_key_exists(9, $fiscal_credit_details) ? number_format($fiscal_credit_details[9]['sale_price'], 2) : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        {{ array_key_exists(9, $fiscal_credit_details) ? $fiscal_credit_details[9]['sub_total'] : ' ' }}
+                                        {{ array_key_exists(9, $fiscal_credit_details) ? number_format($fiscal_credit_details[9]['sub_total'], 2): ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -276,10 +276,10 @@
                                         {{ array_key_exists(10, $fiscal_credit_details) ? $fiscal_credit_details[10]['product']['description'] : ' ' }}
                                     </td>
                                     <td style="width:0.8cm;padding-right:2cm;">
-                                        {{ array_key_exists(10, $fiscal_credit_details) ? $fiscal_credit_details[10]['sale_price'] : ' ' }}
+                                        {{ array_key_exists(10, $fiscal_credit_details) ? number_format($fiscal_credit_details[10]['sale_price'], 2) : ' ' }}
                                     </td>
                                     <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
-                                        {{ array_key_exists(10, $fiscal_credit_details) ? $fiscal_credit_details[10]['sub_total'] : ' ' }}
+                                        {{ array_key_exists(10, $fiscal_credit_details) ? number_format($fiscal_credit_details[10]['sub_total'], 2): ' ' }}
                                     </td>
                                 </tr>
                             </table>
@@ -297,22 +297,22 @@
                                         <table style="width: 100%;font-size: 14px;">
                                             <tr>
                                                 <td style="text-align: right;padding-right:0.9cm;">
-                                                    {{ $sub_total }}
+                                                    {{ number_format($sub_total, 2) }}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="text-align: right;padding-right:0.9cm;">
-                                                    {{ $total_iva }}
+                                                    {{ number_format($total_iva, 2) }}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="text-align: right;padding-right:0.9cm;">
-                                                    {{ $total }}
+                                                    {{ number_format($total, 2) }}
                                                 </td>
                                             </tr>
                                             <tr>
                                                 <td style="text-align: right;padding-right:0.9cm;padding-top:1.2cm;">
-                                                    {{ $total }}
+                                                    {{ number_format($total, 2) }}
                                                 </td>
                                             </tr>
                                         </table>
