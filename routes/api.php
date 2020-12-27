@@ -58,4 +58,10 @@ Route::middleware(['auth:api'])->group(function () {
     Route::apiResource('fiscalCredits', 'FiscalCreditController')->except([
         'update', 'destroy'
     ]);
+
+    Route::get('cashOut/current', 'CashOutController@current');
+
+    Route::apiResource('cashOut', 'CashOutController')->except([
+        'update', 'show'
+    ]);
 });
