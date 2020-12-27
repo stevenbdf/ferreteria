@@ -16,7 +16,7 @@ class CashOutController extends Controller
      */
     public function index()
     {
-        $cash_outs = CashOut::all();
+        $cash_outs = CashOut::latest('id')->get();
 
         foreach ($cash_outs as $cash_out) {
             $cash_out->user;
@@ -65,6 +65,11 @@ class CashOutController extends Controller
             'user_id' => auth()->user()->id,
             'total_sales' => $this->get_current_total()
         ]);
+
+        $cash_out = CashOut::find($cash_out->id);
+
+        $cash_out->user;
+        $cash_out->total_sales = number_format($cash_out->total_sales, 2);
 
         return $cash_out;
     }
