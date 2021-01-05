@@ -22,6 +22,8 @@ Route::get('logout', 'UserController@logout');
 
 Route::get('/transactions/export/', 'TransactionController@export');
 
+Route::get('/products/export/', 'ProductController@export');
+
 Route::get('/invoices/pdf/{invoice_id}', 'InvoiceController@printInvoice');
 
 Route::get('/fiscal-credit/pdf/{fiscal_credit_id}', 'FiscalCreditController@printInvoice');

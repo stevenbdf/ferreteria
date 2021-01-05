@@ -3,11 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Department;
+use Maatwebsite\Excel\Facades\Excel;
 use App\Http\Requests\ProductRequest;
 use App\Product;
 use App\Transaction;
 use Illuminate\Support\Facades\Storage;
 use Symfony\Component\HttpFoundation\Request;
+use App\Exports\ProductsExport;
 
 class ProductController extends Controller
 {
@@ -171,6 +173,11 @@ class ProductController extends Controller
         $product->delete();
 
         return response('', 205);
+    }
+
+    public function export()
+    {
+        return Excel::download(new ProductsExport, 'productos.xlsx');
     }
 
     public function getProductId(Request $request)
