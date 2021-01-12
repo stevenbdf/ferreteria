@@ -37,7 +37,6 @@ class TransactionsExport implements FromView, ShouldAutoSize, WithStyles
         )->orderBy('id', 'desc')->get();
 
         foreach ($transactions as $transaction) {
-            dd($transaction->product->description);
             $transaction['user'] = $transaction->user->full_name;
             $transaction['product'] = $transaction->product->description;
             $transaction['type'] = $transaction['type'] == 1 ? 'Entrada' : 'Salida';
