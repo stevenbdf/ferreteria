@@ -28,6 +28,8 @@ Route::get('/invoices/pdf/{invoice_id}', 'InvoiceController@printInvoice');
 
 Route::get('/fiscal-credit/pdf/{fiscal_credit_id}', 'FiscalCreditController@printInvoice');
 
+Route::get('/quotes/pdf/{quote_id}', 'QuoteController@printInvoice');
+
 Route::middleware(['auth:api'])->group(function () {
     Route::apiResource('users', 'UserController');
 
