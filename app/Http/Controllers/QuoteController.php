@@ -78,10 +78,9 @@ class QuoteController extends Controller
         });
 
         $quote->sub_total = $sub_total;
-        $quote->total = number_format($sub_total, 2);
+        $quote->total = $sub_total;
 
         $quote->numeros_letras = $this->num2letras($quote->total);
-
 
         $pdf->loadView('quote', $quote);
         return $pdf->stream('cotizacion.pdf');
