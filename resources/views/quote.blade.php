@@ -57,7 +57,7 @@
         </tr>
         @for ($i = 0; $i < 10; $i++) <tr>
             <td>{{ isset($quote_details[$i]['quantity']) ? $quote_details[$i]['quantity'] : ' '}}</td>
-            <td>{{ isset($quote_details[$i]['product']['description']) ? $quote_details[$i]['product']['description'] : ' '}}</td>
+            <td>{{ isset($quote_details[$i]['product']['description']) ? substr($quote_details[$i]['product']['description'], 0, 50) : ' '}}</td>
             <td>{{ isset($quote_details[$i]['sale_price']) ? '$' . number_format($quote_details[$i]['sale_price'], 2) : ' '}}</td>
             <td>{{ isset($quote_details[$i]['sub_total']) ? '$' . number_format($quote_details[$i]['sub_total'], 2) : ' '}}</td>
             </tr>
