@@ -30,6 +30,8 @@ Route::get('/fiscal-credit/pdf/{fiscal_credit_id}', 'FiscalCreditController@prin
 
 Route::get('/quotes/pdf/{quote_id}', 'QuoteController@printInvoice');
 
+Route::get('cashOut/{cashOut}/export', 'CashOutController@export');
+
 Route::middleware(['auth:api'])->group(function () {
     Route::apiResource('users', 'UserController');
 

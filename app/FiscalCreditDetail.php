@@ -26,4 +26,9 @@ class FiscalCreditDetail extends Model
     {
         return $this->belongsTo('App\Product');
     }
+
+    public function getSubTotalAttribute()
+    {
+        return round(($this->quantity * $this->sale_price) + ($this->quantity * $this->iva), 2);
+    }
 }

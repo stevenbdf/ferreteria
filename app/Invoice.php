@@ -17,6 +17,8 @@ class Invoice extends Model
 
     public $incrementing = false;
 
+    protected $appends = ['total'];
+
     public function office()
     {
         return $this->belongsTo('App\Office');
@@ -35,5 +37,12 @@ class Invoice extends Model
     public function invoiceDetails()
     {
         return $this->hasMany('App\InvoiceDetail');
+    }
+
+    public function getTotalAttribute()
+    {
+        return round($this->invoiceDetails->reduce(function ($carry, $invoiceDetail) {
+            return $carry += $invoiceDetail->subTotal;
+        }, 0), 2);
     }
 }

@@ -17,6 +17,8 @@ class FiscalCredit extends Model
 
     public $incrementing = false;
 
+    protected $appends = ['total'];
+
     public function office()
     {
         return $this->belongsTo('App\Office');
@@ -35,5 +37,12 @@ class FiscalCredit extends Model
     public function fiscalCreditDetails()
     {
         return $this->hasMany('App\FiscalCreditDetail');
+    }
+
+    public function getTotalAttribute()
+    {
+        return round($this->fiscalCreditDetails->reduce(function ($carry, $fiscalCreditDetail) {
+            return $carry += $fiscalCreditDetail->subTotal;
+        }, 0), 2);
     }
 }

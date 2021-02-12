@@ -3,9 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\CashOut;
+use App\Exports\CashOutExport;
+use App\FiscalCredit;
 use App\FiscalCreditDetail;
+use App\Invoice;
 use App\InvoiceDetail;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class CashOutController extends Controller
 {
@@ -79,5 +83,10 @@ class CashOutController extends Controller
         return [
             'total_sales' => number_format($this->get_current_total(), 2)
         ];
+    }
+
+    public function export(CashOut $cashOut)
+    {
+        return Excel::download(new CashOutExport($cashOut), "corte-de-caja-$cashOut->date.xlsx");
     }
 }

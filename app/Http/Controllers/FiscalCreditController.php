@@ -130,7 +130,7 @@ class FiscalCreditController extends Controller
             $total_iva = $total_iva + $value->sub_total_iva;
         }
 
-        $fiscal_credit->sub_total = $sub_total ;
+        $fiscal_credit->sub_total = $sub_total;
         $fiscal_credit->total_iva = $total_iva;
         $fiscal_credit->total = number_format($sub_total + $total_iva, 2);
 
