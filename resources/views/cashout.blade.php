@@ -12,7 +12,7 @@
     <tbody>
         @foreach($sales as $sale)
         <tr>
-            <td>{{ $sale->date }}</td>
+            <td>{{ $sale->created_at }}</td>
             <td>{{ $sale->user->full_name }}</td>
             <td>{{ $sale->customer->full_name }}</td>
             <td>{{ isset($sale->status) ? "FACTURA #$sale->id" : "CREDITO FISCAL #$sale->id" }}</td>
