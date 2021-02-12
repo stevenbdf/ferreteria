@@ -34,7 +34,7 @@ class TransactionsExport implements FromView, ShouldAutoSize, WithStyles
             'stock',
             'amount',
             'cost'
-        )->orderBy('id', 'desc')->get();
+        )->groupByRaw('product_id desc')->get();
 
         foreach ($transactions as $transaction) {
             $transaction['user'] = $transaction->user->full_name;
