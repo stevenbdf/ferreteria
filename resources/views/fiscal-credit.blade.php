@@ -70,16 +70,16 @@
                         <td style="vertical-align:top;padding-bottom:0cm;padding-top:0.2cm;">
                             <table style="width:100%;padding-left:1cm;height:0.7cm;">
                                 <tr>
-                                    <td style="width:1.3cm;">
+                                    <td style="width:0.9cm;">
                                         {{ isset($fiscal_credit_details[$i]['quantity']) ? $fiscal_credit_details[$i]['quantity'] : ' ' }}
                                     </td>
-                                    <td style="font-size:14px;">
-                                        {{ isset($fiscal_credit_details[$i]['product']['description']) ? substr($fiscal_credit_details[$i]['product']['description'], 0, 30) : ' ' }}
+                                    <td style="width:3.3cm;font-size:14px;">
+                                        {{ isset($fiscal_credit_details[$i]['product']['description']) ? substr($fiscal_credit_details[$i]['product']['description'], 0, 24) : ' ' }}
                                     </td>
-                                    <td style="width:0.8cm;padding-right:2cm;">
-                                        {{ isset($fiscal_credit_details[$i]['sale_price']) ? number_format($fiscal_credit_details[$i]['sale_price'], 2) : ' ' }}
+                                    <td style="width:2cm;">
+                                        {{ isset($fiscal_credit_details[$i]['sale_price']) ? number_format($fiscal_credit_details[$i]['sale_price'], 2) . "  " . number_format($fiscal_credit_details[$i]['sub_total_iva'], 2)  : ' ' }}
                                     </td>
-                                    <td style="text-align: right;padding-right:1.2cm;width:1.7cm;">
+                                    <td style="text-align:center;width:1.7cm;">
                                         {{ isset($fiscal_credit_details[$i]['sub_total']) ? number_format($fiscal_credit_details[$i]['sub_total'], 2) : ' ' }}
                                     </td>
                                 </tr>

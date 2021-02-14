@@ -36,7 +36,9 @@ class CashOutController extends Controller
         $latestDate = CashOut::select('date')->latest('date')->first();
 
         // Calc total amount of money from fiscal credits created after latest cashout
-        $fiscal_details = FiscalCreditDetail::whereRaw("created_at >= '$latestDate->date'")->get();
+        $fiscal_details = FiscalCreditDetail::when($latestDate, function ($query, $latestDate) {
+            return $query->whereRaw("created_at >= '$latestDate->date'");
+        })->get();
 
         $fiscal_credit_total = 0;
 
@@ -46,7 +48,9 @@ class CashOutController extends Controller
         }
 
         // Calc total amount of money from invoices created after latest cashout
-        $invoice_details = InvoiceDetail::whereRaw("created_at >= '$latestDate->date'")->get();
+        $invoice_details = InvoiceDetail::when($latestDate, function ($query, $latestDate) {
+            return $query->whereRaw("created_at >= '$latestDate->date'");
+        })->get();
 
         $invoice_total = 0;
 
